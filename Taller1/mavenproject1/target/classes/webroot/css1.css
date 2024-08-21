@@ -1,0 +1,88 @@
+/* Estilos generales para el cuerpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilos para los encabezados */
+h1, h2, h3 {
+    color: #4CAF50;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+}
+
+/* Estilo para los botones */
+input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para las etiquetas y campos del formulario */
+form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilos para las imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los mensajes de respuesta */
+div#fileContent, div#getrespmsg, div#postrespmsg {
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+div#fileContent {
+    border-left: 4px solid #4CAF50;
+}
+
+div#getrespmsg, div#postrespmsg {
+    border-left: 4px solid #2196F3;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    input[type="button"] {
+        width: 100%;
+        padding: 15px;
+    }
+}

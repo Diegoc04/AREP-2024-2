@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AREP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diego Castellanos Taller 1</h1>
+
+    <!-- Formulario para solicitar un archivo estático -->
+    <h2>Solicitar un archivo</h2>
+    <form>
+        <label for="filename">Nombre del archivo:</label>
+        <input type="text" id="filename" name="filename" value="prueba.html">
+        <input type="button" value="Solicitar archivo" onclick="loadFile()">
+    </form>
+    <div id="fileContent"></div>
+
+    <!-- Formulario para solicitar datos RESTful (GET) -->
+    <h1>Form with GET</h1>
+    <form id="getForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="John"><br><br>
+        <input type="button" value="Submit" onclick="loadGetMsg()">
+    </form>
+    <div id="getrespmsg"></div>
+
+    <!-- Formulario para solicitar datos RESTful (POST) -->
+    <h1>Form with POST</h1>
+    <form id="postForm">
+        <label for="postname">Name:</label><br>
+        <input type="text" id="postname" name="name" value="John"><br><br>
+        <input type="button" value="Submit" onclick="loadPostMsg()">
+    </form>
+    <div id="postrespmsg"></div>
+
+    <script>
+    // Función para solicitar archivos estáticos
+    function loadFile() {
+        let filename = document.getElementById("filename").value;
+        let fileType = filename.split('.').pop(); // Obtener la extensión del archivo
+
+        if (fileType === 'html') {
+            // Si es un archivo HTML, abrir en una nueva pestaña
+            window.open("/" + filename, "_blank");
+        } else {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                if (fileType === 'png' || fileType === 'jpg' || fileType === 'jpeg') {
+                    // Mostrar la imagen si es un archivo de imagen
+                    document.getElementById("fileContent").innerHTML = `<img src='/${filename}' alt='Imagen no encontrada' />`;
+                } else if (fileType === 'js') {
+                    // Ejecutar el contenido del archivo JS
+                    const script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.text = this.responseText;
+                    document.body.appendChild(script);
+                } else if (fileType === 'css') {
+                    // Aplicar el archivo CSS cargado
+                    const style = document.createElement("style");
+                    style.type = "text/css";
+                    style.textContent = this.responseText;
+                    document.head.appendChild(style);
+                } else {
+                    document.getElementById("fileContent").innerHTML = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/" + filename);
+            xhttp.send();
+        }
+    }
+
+    // Función para realizar una solicitud GET
+    function loadGetMsg() {
+        let nameVar = encodeURIComponent(document.getElementById("name").value);
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("getrespmsg").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "/hello?name=" + nameVar, true);
+        xhttp.send();
+    }
+
+    // Función para realizar una solicitud POST
+    function loadPostMsg() {
+        let nameVar = encodeURIComponent(document.getElementById("postname").value);
+        fetch("/hellopost?name=" + nameVar, { method: 'POST' })
+            .then(response => response.text())
+            .then(text => document.getElementById("postrespmsg").innerHTML = text);
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+/* reset.css */
+
+/* Eliminar márgenes y rellenos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos predeterminados para el cuerpo */
+body {
+    font-family: sans-serif; /* Restablece la fuente predeterminada */
+    background-color: transparent; /* Elimina el color de fondo */
+    color: initial; /* Restablece el color del texto */
+    padding: 0;
+}
+
+/* Restablecer estilos para encabezados */
+h1, h2, h3 {
+    color: initial; /* Restablece el color del texto */
+    text-align: initial; /* Restablece la alineación del texto */
+    font-family: initial; /* Restablece la fuente */
+    text-transform: none; /* Elimina la transformación de texto */
+}
+
+/* Estilo para botones */
+input[type="button"] {
+    background-color: initial; /* Restablece el color de fondo */
+    color: initial; /* Restablece el color del texto */
+    border: initial; /* Elimina el borde */
+    padding: initial; /* Restablece el relleno */
+    text-align: initial; /* Restablece la alineación del texto */
+    text-decoration: initial; /* Elimina la decoración del texto */
+    font-size: initial; /* Restablece el tamaño de la fuente */
+    margin: initial; /* Restablece el margen */
+    cursor: initial; /* Restablece el cursor */
+    border-radius: initial; /* Restablece el radio del borde */
+    transition: initial; /* Elimina las transiciones */
+}
+
+/* Estilos para etiquetas y campos del formulario */
+form label {
+    font-weight: normal; /* Restablece el peso de la fuente */
+    display: initial; /* Restablece el tipo de visualización */
+    margin-bottom: initial; /* Restablece el margen inferior */
+}
+
+form input[type="text"] {
+    width: auto; /* Restablece el ancho */
+    padding: initial; /* Restablece el relleno */
+    margin-bottom: initial; /* Restablece el margen inferior */
+    border: initial; /* Restablece el borde */
+    border-radius: initial; /* Restablece el radio del borde */
+}
+
+/* Estilos para imágenes */
+img {
+    max-width: 100%; /* Permite que la imagen se ajuste a su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border: none; /* Elimina el borde */
+    border-radius: 0; /* Elimina el radio del borde */
+    box-shadow: none; /* Elimina la sombra */
+}
+
+/* Estilos para los mensajes de respuesta */
+div#fileContent, div#getrespmsg, div#postrespmsg {
+    padding: initial; /* Restablece el relleno */
+    border-radius: initial; /* Restablece el radio del borde */
+    background-color: transparent; /* Elimina el color de fondo */
+    box-shadow: none; /* Elimina la sombra */
+    margin-top: initial; /* Restablece el margen superior */
+}
+
+div#fileContent {
+    border-left: none; /* Elimina el borde izquierdo */
+}
+
+div#getrespmsg, div#postrespmsg {
+    border-left: none; /* Elimina el borde izquierdo */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: initial; /* Restablece el relleno */
+    }
+
+    input[type="button"] {
+        width: auto; /* Restablece el ancho */
+        padding: initial; /* Restablece el relleno */
+    }
+}
