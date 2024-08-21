@@ -109,11 +109,11 @@ Cuando se realiza la solicitud POST a la ruta /hellopost, el servidor lee el cue
 Diego Fernando Castellanos Amaya - [Diegoc04](https://github.com/Diegoc04)
 
 # Agradecimientos
-*
+* Al profesor Daniel Benavides por impartir esta clase y tener la pasión de enseñar.
 * Las imagenes fuerón sacadas del las siguientes paginas:
   1. [png](https://www.flaticon.es/icono-gratis/simbolo-de-formato-de-archivo-png_29072) 
-  2. [jpg]([https://www.flaticon.es/icono-gratis/simbolo-de-formato-de-archivo-png_29072](https://www.ensalza.com/blog/diccionario/que-es-jpg/)) 
-  3. [jpeg]([[https://www.flaticon.es/icono-gratis/simbolo-de-formato-de-archivo-png_29072](https://www.ensalza.com/blog/diccionario/que-es-jpg/)](https://www.shutterstock.com/es/image-vector/modern-flat-design-jpeg-file-icon-1953084310)) 
+  2. [jpg](https://www.ensalza.com/blog/diccionario/que-es-jpg/) 
+  3. [jpeg](https://www.shutterstock.com/es/image-vector/modern-flat-design-jpeg-file-icon-1953084310)
 
 
 
