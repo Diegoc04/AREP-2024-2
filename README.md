@@ -43,6 +43,45 @@ Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
 
 ![image](https://github.com/user-attachments/assets/c3a998ac-c541-4536-847c-d1eb4f132964)
 
+# Arquitectura del proyecto
+1. Servidor Web
+   
+1.1. Componente de Red:
+
+ServerSocket: Acepta conexiones de clientes en el puerto 8080.
+Socket: Representa cada conexión individual con un cliente.
+
+1.2. Manejo de Solicitudes:
+
+handleClient: Método principal para la interacción con cada cliente.
+BufferedReader: Lee las solicitudes del cliente.
+PrintWriter: Envía respuestas de texto al cliente.
+BufferedOutputStream: Envía datos binarios al cliente.
+
+1.3. Procesamiento de Solicitudes:
+
+handleGetRequest(String fileRequested, PrintWriter out, BufferedOutputStream dataOut): Maneja solicitudes GET. Da respuestas a servicios REST.
+handlePostRequest(String fileRequested, BufferedReader in, PrintWriter out): Maneja solicitudes POST. Procesa datos recibidos y responde a servicios REST.
+serveStaticFile(String fileRequested, PrintWriter out, BufferedOutputStream dataOut): Sirve archivos estáticos como HTML, CSS, JS, imágenes, etc.
+
+2. Servicio RESTful
+   
+2.1. Solicitudes GET:
+
+/hello: Maneja solicitudes GET. Extrae parámetros de la URL y genera una respuesta de texto plano.
+
+2.2. Solicitudes POST:
+
+/hellopost: Maneja solicitudes POST. Lee el cuerpo de la solicitud, extrae parámetros y genera una respuesta de texto plano.
+
+3. Cliente Web (HTML/JavaScript)
+   
+3.1. Funcionalidad JavaScript:
+
+loadFile(): Solicita archivos estáticos (HTML, CSS, JS, imágenes) y los procesa según su tipo.
+loadGetMsg(): Envía una solicitud GET al servidor y muestra la respuesta.
+loadPostMsg(): Envía una solicitud POST al servidor y muestra la respuesta.
+
 # Ejecutando las pruebas
 Primero solicitaremos varios archivos que se encuentran alojados en el disco local, estos archivos son:
 * texto.txt
