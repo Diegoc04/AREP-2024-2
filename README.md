@@ -14,4 +14,8 @@ Estas instrucciones le permitirán obtener una copia del proyecto en funcionamie
 (Es necesario tener instalado Git y apache NeatBeans para poder ejecutar el proyecto.)
 
 # Instalación
-Para instalar el proyecto en su maquina local 
+Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
+1. Abriremos git bash en donde quiera guardar el proyecto.
+   ![image](https://github.com/user-attachments/assets/88a41f67-60cc-4fa5-a909-3346c2a61ef5)
+2. clonaremos el repositorio usando la siguiente URL: 
+
