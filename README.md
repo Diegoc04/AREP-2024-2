@@ -85,8 +85,35 @@ Por ultimo, si tratamos de traer un archivo el cual no se encuentra alojado, la 
 ![image](https://github.com/user-attachments/assets/0373894b-16f9-483b-9b85-37352de99164)
 ![image](https://github.com/user-attachments/assets/55a36eb9-18cd-4504-8f81-a18d312c48b1)
 
+Ahora, revisaremos el servicio REST en su forma GET y Post
+
+1.  
+![image](https://github.com/user-attachments/assets/98953509-0543-4c22-b025-62b4a8b46483)
+![image](https://github.com/user-attachments/assets/fdd588b3-c538-45b5-8940-bcce40e0197f)
 
 
+Cuando se realiza la solicitud GET a la ruta /hello, el servidor extrae el parámetro name de la URL y construye una respuesta en texto plano que dice "Hello, [name]!" y envía una respuesta HTTP con el código de estado 200 OK y el contenido en texto plano al cliente.
+
+2.
+
+  ![image](https://github.com/user-attachments/assets/d9ea6d39-9eba-4f55-b7e6-6383911a9464)
+  ![image](https://github.com/user-attachments/assets/484eb91d-df1b-46c2-bb78-68816d18f43b)
+   
+Funcionamiento:
+Cuando se realiza la solicitud POST a la ruta /hellopost, el servidor lee el cuerpo de la solicitud para obtener los datos enviados. Luego construye una respuesta en texto plano que dice "POST recibido: [name]", y envía una respuesta HTTP con el código de estado 200 OK y el contenido en texto plano al cliente.
+
+# Construido con
+[Apache NeatBeans IDE 22](https://netbeans.apache.org/front/main/download/nb22/) - entorno de desarrollo.
+   
+# Autores
+Diego Fernando Castellanos Amaya - [Diegoc04](https://github.com/Diegoc04)
+
+# Agradecimientos
+*
+* Las imagenes fuerón sacadas del las siguientes paginas:
+  1. [png](https://www.flaticon.es/icono-gratis/simbolo-de-formato-de-archivo-png_29072) 
+  2. [jpg]([https://www.flaticon.es/icono-gratis/simbolo-de-formato-de-archivo-png_29072](https://www.ensalza.com/blog/diccionario/que-es-jpg/)) 
+  3. [jpeg]([[https://www.flaticon.es/icono-gratis/simbolo-de-formato-de-archivo-png_29072](https://www.ensalza.com/blog/diccionario/que-es-jpg/)](https://www.shutterstock.com/es/image-vector/modern-flat-design-jpeg-file-icon-1953084310)) 
 
 
 
