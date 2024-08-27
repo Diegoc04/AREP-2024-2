@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Nintendo.com</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script src="tabla.js"></script>
+    </head>
+    <body>
+        <header id="header">
+            <h1 id="title">Videojuegos de Nintendo</h1>
+        </header>
+        <div>
+            <h2>Sagas: </h2>
+            <hr>
+            <div id="juegos">
+                <button class="button" id="Animal_Crossing" onclick="getGames('Animal_Crossing')" data-color='#AC19A7'>Animal Crossing</button>
+                <button class="button" id="Donkey_Kong" onclick="getGames('Donkey_Kong')" data-color='#1685F3'>Donkey Kong</button>
+                <button class="button" id="Kirby" onclick="getGames('Kirby')" data-color='#3BFF24'>Kirby</button>
+                <button class="button" id="Mario_Bros" onclick="getGames('Mario_Bros')" data-color='#71F8FC'>Mario Bros</button>
+                <button class="button" id="Mario_Kart" onclick="getGames('Mario_Kart')" data-color='#FF1700'>Mario Kart</button>
+                <button class="button" id="Metroid" onclick="getGames('Metroid')" data-color='#460283'>Metroid</button>
+                <button class="button" id="Pikmin" onclick="getGames('Pikmin')" data-color='#0010CE'>Pikmin</button>
+                <button class="button" id="Pokemon" onclick="getGames('Pokemon')" data-color='#026F00'>Pokemon</button>
+                <button class="button" id="Star_Fox" onclick="getGames('Star_Fox')" data-color='#FFE400'>Star Fox</button>
+                <button class="button" id="Splatoon" onclick="getGames('Splatoon')" data-color='#AC19A7'>Splatoon</button>
+                <button class="button" id="The_Legend_Of_Zelda" onclick="getGames('The_Legend_Of_Zelda')" data-color='#61D600'>The Legend Of Zelda</button>
+            </div>
+        </div>
+        <div id="tables">
+            <div class="col-md-8">
+                <div class="card-header">
+                    <h5>Juegos</h5>
+                </div>
+                <div class="card-body">
+                    <table id="GameTable" class="table table-striped" >
+                        <h3 id="text"></h3>
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Fecha de lanzamiento</th>
+                            <th>Consola de lanzamiento</th>
+                            <th>Total Ventas</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a id="previous" class="page-link" href="#" tabindex="-1" aria-disabled="false" onclick="nextGames('previous')" data-page="0">Previous</a>
+                            </li>
+                            <li class="page-item">
+                                <a id="next" class="page-link" href="#" tabindex="3" aria-disabled="false" onclick="nextGames('next')" data-page="1">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
