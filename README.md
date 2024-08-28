@@ -19,7 +19,7 @@ Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
 ![image](https://github.com/user-attachments/assets/5ec6d71b-84b9-4b24-919c-006f93ca202c)
 2. clonaremos el repositorio usando la siguiente URL: https://github.com/Diegoc04/AREP-2024-2.git, una vez clonado nos moveremos a la carpeta AREP usando el comado cd.
 
-![image](https://github.com/user-attachments/assets/e1f81299-f2bb-4a9a-80a3-5ca462f6e509)
+![image](https://github.com/user-attachments/assets/431c338b-7351-4811-9c06-1c78d647da87)
 
 3. Nos moveremos a la rama Taller-2 usando el comando git checkout.
    
