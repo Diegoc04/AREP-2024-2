@@ -38,6 +38,13 @@ El anterior comando limpiará las contrucciones previas, compilará y empaquetar
 ![image](https://github.com/user-attachments/assets/b512303a-4eec-48a3-8ff2-e6c573723880)
 
 # Mostrando la funcionalidad.
+1. El primer requerimiento de este taller era hacer un metodo GET estatico para servicios REST.
+   si nos movemos al codigo del serivor (SimpleWebServer.java) y vamos a la linea 23 veremos el metodo pedido.
+
+   ![image](https://github.com/user-attachments/assets/efeacddf-620b-4648-895a-db6ea202329c)
+
+Para revisar si el metodo funciona pondremos la siguiente URL en el broswer: http://localhost:8080/hi
+
 
 
 
