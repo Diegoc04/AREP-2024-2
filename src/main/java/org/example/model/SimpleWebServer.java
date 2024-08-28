@@ -20,7 +20,7 @@ public class SimpleWebServer {
         // Define some services
         staticfiles("classes/webroot");
         get("/test", (req, res) -> "Test route is working");
-        get("/hello", (req, resp) -> "Hello world");
+        get("/hi", (req, resp) -> "Hello world");
         get("/pi", (req, resp) -> String.valueOf(Math.PI));
         get("/hello", (req, res) -> "hello " + req.getValues("name", ""));
         
