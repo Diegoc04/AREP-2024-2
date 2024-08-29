@@ -45,46 +45,46 @@ public class SpringECI {
 
         // Codigo quemado para ejemplo
         
-        URL serviceurl = new URL("http://localhost:8080/App/pi");
-        String path = serviceurl.getPath();
+        serviceurl = new URL("http://localhost:8080/App/pi");
+        path = serviceurl.getPath();
         System.out.println("Path " + path);
-        String servicename = path.substring(4);
+        servicename = path.substring(4);
         System.out.println("Service name " + servicename);
         
-        Method ms = services.get(servicename);
+        ms = services.get(servicename);
         ms.invoke(ms);
 
         // Codigo quemado para ejemplo
         
-        URL serviceurl = new URL("http://localhost:8080/App/luz");
-        String path = serviceurl.getPath();
+        serviceurl = new URL("http://localhost:8080/App/luz");
+        path = serviceurl.getPath();
         System.out.println("Path " + path);
-        String servicename = path.substring(4);
+        servicename = path.substring(4);
         System.out.println("Service name " + servicename);
         
-        Method ms = services.get(servicename);
+        ms = services.get(servicename);
         ms.invoke(ms);
 
         // Codigo quemado para ejemplo
         
-        URL serviceurl = new URL("http://localhost:8080/App/bye");
-        String path = serviceurl.getPath();
+        serviceurl = new URL("http://localhost:8080/App/bye");
+        path = serviceurl.getPath();
         System.out.println("Path " + path);
-        String servicename = path.substring(4);
+        servicename = path.substring(4);
         System.out.println("Service name " + servicename);
         
-        Method ms = services.get(servicename);
+        ms = services.get(servicename);
         ms.invoke(ms);
 
         // Codigo quemado para ejemplo
         
-        URL serviceurl = new URL("http://localhost:8080/App/bye");
-        String path = serviceurl.getPath();
+        serviceurl = new URL("http://localhost:8080/App/planck");
+        path = serviceurl.getPath();
         System.out.println("Path " + path);
-        String servicename = path.substring(4);
+        servicename = path.substring(4);
         System.out.println("Service name " + servicename);
         
-        Method ms = services.get(servicename);
+        ms = services.get(servicename);
         ms.invoke(ms);
     }
 }
