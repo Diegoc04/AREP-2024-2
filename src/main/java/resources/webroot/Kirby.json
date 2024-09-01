@@ -1,0 +1,93 @@
+[
+    {
+        "nombre": "Kirby's Dream Land",
+        "fecha": "1992-04-27",
+        "consola": "Game Boy",
+        "ventas": "5.13 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby's Adventure",
+        "fecha": "1993-03-23",
+        "consola": "Nintendo Entertainment System (NES)",
+        "ventas": "1.75 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby's Dream Land 2",
+        "fecha": "1995-03-21",
+        "consola": "Game Boy",
+        "ventas": "2.36 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby Super Star",
+        "fecha": "1996-03-21",
+        "consola": "Super Nintendo Entertainment System (SNES)",
+        "ventas": "1.38 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby's Dream Land 3",
+        "fecha": "1997-11-27",
+        "consola": "Super Nintendo Entertainment System (SNES)",
+        "ventas": "1.07 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby 64: The Crystal Shards",
+        "fecha": "2000-03-24",
+        "consola": "Nintendo 64",
+        "ventas": "1.77 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby: Nightmare in Dream Land",
+        "fecha": "2002-10-25",
+        "consola": "Game Boy Advance",
+        "ventas": "2.16 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby & the Amazing Mirror",
+        "fecha": "2004-04-15",
+        "consola": "Game Boy Advance",
+        "ventas": "1.47 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby's Epic Yarn",
+        "fecha": "2010-10-14",
+        "consola": "Wii",
+        "ventas": "2.63 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby: Triple Deluxe",
+        "fecha": "2014-01-11",
+        "consola": "Nintendo 3DS",
+        "ventas": "2.64 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby: Planet Robobot",
+        "fecha": "2016-04-28",
+        "consola": "Nintendo 3DS",
+        "ventas": "1.89 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby Star Allies",
+        "fecha": "2018-03-16",
+        "consola": "Nintendo Switch",
+        "ventas": "3.06 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Kirby and the Forgotten Land",
+        "fecha": "2022-03-25",
+        "consola": "Nintendo Switch",
+        "ventas": "6.46 millones",
+        "portadas": ""
+    }
+]

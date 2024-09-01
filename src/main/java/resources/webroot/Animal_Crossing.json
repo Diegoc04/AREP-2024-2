@@ -1,0 +1,37 @@
+[
+    {
+        "nombre": "Animal Crossing",
+        "fecha": "2001-04-14",
+        "consola": "Nintendo 64, GameCube",
+        "ventas": "2.71 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Animal Crossing: Wild World",
+        "fecha": "2005-11-23",
+        "consola": "Nintendo DS",
+        "ventas": "11.75 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Animal Crossing: City Folk",
+        "fecha": "2008-11-16",
+        "consola": "Wii",
+        "ventas": "4.32 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Animal Crossing: New Leaf",
+        "fecha": "2012-11-08",
+        "consola": "Nintendo 3DS",
+        "ventas": "12.82 millones",
+        "portadas": ""
+    },
+    {
+        "nombre": "Animal Crossing: New Horizons",
+        "fecha": "2020-03-20",
+        "consola": "Nintendo Switch",
+        "ventas": "42.79 millones",
+        "portadas": ""
+    }
+]
