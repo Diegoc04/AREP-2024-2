@@ -28,11 +28,9 @@ import java.util.Map;
  * @author diego.castellanos-a
  */
 public class SpringECI {
-    private static final int PORT = 8080;
-    public static final String WEB_ROOT = "target/classes/webroot";
-    
+   
     public static void main(String[] args) throws ClassNotFoundException, MalformedURLException, IllegalAccessException, InvocationTargetException, IOException {
-        // Verificar si se proporcionaron argumentos
+         // Verificar si se proporcionaron argumentos
         if (args.length == 0) {
             System.out.println("Error: Debes proporcionar el nombre de la clase controlador como argumento.");
             return;
@@ -91,41 +89,4 @@ public class SpringECI {
             clientSocket.close();
         }
     }
-    
-    private static void serveStaticFile(String path, OutputStream out) throws IOException {
-        File file = new File(WEB_ROOT, path);
-        if (file.exists() && !file.isDirectory()) {
-            String contentType = URLConnection.guessContentTypeFromName(file.getName());
-
-            if (contentType == null) {
-                contentType = "application/octet-stream"; // Tipo por defecto
-            }
-
-            // Enviar cabeceras HTTP
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out));
-            writer.write("HTTP/1.1 200 OK\r\n");
-            writer.write("Content-Type: " + contentType + "\r\n");
-            writer.write("Content-Length: " + file.length() + "\r\n");
-            writer.write("\r\n");
-            writer.flush();
-
-            // Enviar contenido del archivo
-            FileInputStream fis = new FileInputStream(file);
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = fis.read(buffer)) != -1) {
-                out.write(buffer, 0, bytesRead);
-            }
-            fis.close();
-        } else {
-            // Archivo no encontrado
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out));
-            writer.write("HTTP/1.1 404 Not Found\r\n");
-            writer.write("Content-Type: text/plain\r\n");
-            writer.write("\r\n");
-            writer.write("Archivo no encontrado");
-            writer.flush();
-        }
-    }
- 
 }
