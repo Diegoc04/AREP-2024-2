@@ -60,6 +60,7 @@ Para ejecutar las pruebas pare la ejecucuión del proyecto y utilice el siguient
 
 # Versiones 
 maven: 3.9.9
+
 Java: 17.0.10
    
 # Autores
