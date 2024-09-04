@@ -88,7 +88,7 @@ public class SpringECITest {
      */
     @Test
     public void testHandleClient_Imagen() throws Exception {
-        Path path = Paths.get("target/classes/webroot/imagen.png");
+        Path path = Paths.get("src/main/java/resources/webroot/imagen.png");
         byte[] fileContent = Files.readAllBytes(path);
 
         // Simula la solicitud GET a /App/imagen
