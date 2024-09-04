@@ -76,7 +76,7 @@ public class SpringECI {
         }
     }
 
-    private void handleClient(Socket clientSocket) {
+    public void handleClient(Socket clientSocket) {
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             BufferedOutputStream out = new BufferedOutputStream(clientSocket.getOutputStream());
@@ -158,7 +158,7 @@ public class SpringECI {
         out.flush();
     }
 
-    private Object[] prepareMethodArguments(Method method, Map<String, String> queryParams) {
+    public Object[] prepareMethodArguments(Method method, Map<String, String> queryParams) {
         Parameter[] parameters = method.getParameters();
         Object[] args = new Object[parameters.length];
 
