@@ -89,7 +89,6 @@ Devolución de archivos estaticos
 
 ![image](https://github.com/user-attachments/assets/60cbd9bc-deb9-422a-8f60-54adf76f0e4c)
 
-2. http://localhost:8080/App/imagen
 
 # Ejecutar las pruebas automaticas
 
