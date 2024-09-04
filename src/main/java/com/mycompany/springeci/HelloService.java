@@ -49,13 +49,13 @@ public class HelloService {
     
     @GetMapping("/pagina")
     public byte[] getHtmlPage() throws IOException {
-        Path path = Paths.get("target/classes/webroot/prueba.html");
+        Path path = Paths.get("src/main/java/resources/webroot/prueba.html");
         return Files.readAllBytes(path);
     }
     
     @GetMapping("/imagen")
     public byte[] getImage() throws IOException {
-        Path path = Paths.get("target/classes/webroot/imagen.png");
+        Path path = Paths.get("src/main/java/resources/webroot/imagen.png");
         return Files.readAllBytes(path);
     }
     
