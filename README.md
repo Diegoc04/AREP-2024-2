@@ -27,7 +27,13 @@ Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
 ![image](https://github.com/user-attachments/assets/8fc85ce2-6d3a-406b-8c5a-10a4bb4cce69)
 
 # Ejecutar la aplicación
-1. Para ejecutar la aplicación Ejecutaremos el siguiente comando:  java -cp target/classes/ com.mycompany.springeci.SpringECI com.mycompany.springeci.HelloService
+1. Para ejecutar la aplicación Ejecutaremos el siguiente comando: mvn clean compile exec:java '-Dexec.mainClass=com.mycompany.springeci.SpringECI'
+
+   ![image](https://github.com/user-attachments/assets/e763a323-070a-4703-9785-d5df79dce165)
+
+   El anterior comando limpiará las contrucciones previas, compilará y empaquetará el código en un jar y luego ejecutará la aplicación.
+
+2. Luego usaremos el siguiente comando:  java -cp target/classes/ com.mycompany.springeci.SpringECI com.mycompany.springeci.HelloService
    
 ![image](https://github.com/user-attachments/assets/6fc130da-7252-4efc-891f-8abe94b2b3c5)
 
