@@ -1,7 +1,6 @@
-# Taller 2: Microframeworks WEB
-Este taller se centra en la evolución de un servidor web existente para convertirlo en un marco de trabajo web completo y funcional, especializado en la gestión de servicios REST y archivos estáticos. La idea es proporcionar a los desarrolladores las herramientas necesarias para crear aplicaciones web robustas, con la posibilidad de definir rutas REST mediante expresiones lambda, gestionar parámetros de consulta en las solicitudes, y organizar de manera eficiente los recursos estáticos de la aplicación.
+# Taller 3: Taller de Arquitecturas de Servidores de Aplicaciones, Meta protocolos de objetos, Patrón IoC, Reflexión
 
-![image](https://github.com/user-attachments/assets/9866b785-ab44-4f03-b93b-45c6bf41441f)
+Este taller explora la creación de un prototipo mínimo que demuestra capacidades reflexivas de JAVA y permite cargar un bean (POJO) y derivar una aplicación Web a partir de él similar a la de Spring.
 
 # Empezando
 Estas instrucciones le permitirán obtener una copia del proyecto en funcionamiento en su máquina local para fines de desarrollo y prueba. 
