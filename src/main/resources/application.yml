@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://Diego:EbCQvMczJcS61E5q@arsw.tw8lk.mongodb.net/todoApp?retryWrites=true&w=majority&appName=ARSW
+
+
+          

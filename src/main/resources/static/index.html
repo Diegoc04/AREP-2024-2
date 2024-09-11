@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Send a Message</h1>
+        <textarea id="messageContent" rows="4" cols="50" placeholder="Enter your message here..."></textarea><br>
+        <button id="sendButton">Send Message</button>
+
+        <a href="/messages">View Last Messages</a>
+    </div>
+
+    <script>
+        document.getElementById('sendButton').addEventListener('click', function() {
+            const content = document.getElementById('messageContent').value;
+            if (!content.trim()) { // Verifica si el contenido no está vacío
+                console.error('Message content is empty');
+                return;
+            }
+            console.log('Sending message:', content); // Verificar que el contenido no está vacío
+
+            fetch('http://localhost:35000/log', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content: content })
+            }).then(response => {
+                if (response.ok) {
+                    console.log('Message sent successfully');
+                    document.getElementById('messageContent').value = ''; // Limpiar el textarea
+                } else {
+                    console.error('Failed to send message:', response.statusText);
+                }
+            }).catch(error => {
+                console.error('Error sending message:', error);
+            });
+        });
+    </script>
+</body>
+</html>
