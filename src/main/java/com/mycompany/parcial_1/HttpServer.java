@@ -5,7 +5,8 @@ import java.io.*;
 
 public class HttpServer {
     
-  private static final int PORT = 35000;
+  private static final int PORT1 = 35000;
+  private static final int PORT2 = 35001;
   
   public static void main(String[] args) throws IOException {
    ServerSocket serverSocket = null;
