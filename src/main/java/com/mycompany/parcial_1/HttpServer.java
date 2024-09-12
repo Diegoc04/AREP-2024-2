@@ -4,10 +4,13 @@ import java.net.*;
 import java.io.*;
 
 public class HttpServer {
+    
+  private static final int PORT = 35000;
+  
   public static void main(String[] args) throws IOException {
    ServerSocket serverSocket = null;
    try { 
-      serverSocket = new ServerSocket(36000);
+      serverSocket = new ServerSocket(35000);
    } catch (IOException e) {
       System.err.println("Could not listen on port: 35000.");
       System.exit(1);
@@ -27,7 +30,7 @@ public class HttpServer {
                          new InputStreamReader(clientSocket.getInputStream()));
    String inputLine, outputLine;
    while ((inputLine = in.readLine()) != null) {
-      System.out.println("Recibí: " + inputLine);
+      System.out.println("Recibi: " + inputLine);
       if (!in.ready()) {break; }
    }
    outputLine = 
