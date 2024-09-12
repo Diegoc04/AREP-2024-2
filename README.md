@@ -37,6 +37,8 @@ Una vez tengamos el proyecto corriendo iremos a nuestro browser y pondremos la s
 
 ## Mostrando la funcionalidad 
 
+(Probar en FireFox)
+
 ![image](https://github.com/user-attachments/assets/c72e741d-33dc-4c15-a2d0-dc3f8de03af5)
 
 ![image](https://github.com/user-attachments/assets/b7aa1291-d6d7-4686-a768-b1b53daef9fe)
@@ -47,7 +49,7 @@ Una vez tengamos el proyecto corriendo iremos a nuestro browser y pondremos la s
 
 
 
-##Arquitectura del proyecto  
+## Arquitectura del proyecto  
 Los módulos de la aplicación son los siguientes:
 
 1. Componentes Principales:
@@ -84,6 +86,7 @@ MongoDB: La aplicación utiliza MongoDB como su sistema de base de datos NoSQL. 
 
 
 ## Como generar las imagenes
+
 ![image](https://github.com/user-attachments/assets/9533e124-8367-48aa-8f9d-779dae042eab)
 ![image](https://github.com/user-attachments/assets/7ef45352-85b2-45c6-a444-2dab0b9fc91f)
 ![image](https://github.com/user-attachments/assets/a3d0cb81-fd6b-4ad5-91a7-248eda5971b4)
