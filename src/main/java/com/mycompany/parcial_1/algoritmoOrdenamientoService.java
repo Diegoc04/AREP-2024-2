@@ -5,19 +5,23 @@ public class algoritmoOrdenamientoService {
     int A;
     int B;
     boolean go;
-    int cont = 0
     public int[] BubbleSort(int[] lista ){
         A = lista[0];
         while(go){
             for(int i = 1; i < lista.length - 2; i++ ){
+                int cont = 0;
                 if(A > lista[i]){
                     B = lista[i];
                     lista[i] = A;
                     lista[i+1] = B;
-                    cont += 1
+                    cont++;
+                }
+                if(cont==0){
+                    go = false;
                 }
             }
         }
+    solution = lista;
     return solution;
     }    
 }
