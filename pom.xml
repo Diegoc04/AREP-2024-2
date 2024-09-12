@@ -38,6 +38,13 @@
         <artifactId>spring-data-commons</artifactId>
         <version>3.3.3</version>
       </dependency>
+        <dependency>
+            <groupId>com.sxtanna.database</groupId>
+            <artifactId>Tests</artifactId>
+            <version>1.0</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
