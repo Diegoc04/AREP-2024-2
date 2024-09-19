@@ -5,9 +5,7 @@ Estas instrucciones le permitirán obtener una copia del proyecto en funcionamie
 
 ## prerrequisitos
 * Git - Control de versiones
-* Maven - Gestor de dependencias
 * Java - Lenguaje de programación
-* Docker - Motor de contenedores
 
 (Es necesario tener instalado Git y Maven para poder ejecutar el proyecto.)
 
@@ -16,7 +14,10 @@ Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
 
 1. clone el proyecto con el siguiente comando: git clone https://github.com/Diegoc04/AREP-2024-2.git
 2. Muevase a la carpeta Arep-2024-2 con el comando: cd Arep-2024-2/
-3. muevase a la rama Taller-4 con el comando: git checkout Taller-4
+3. muevase a la rama Taller-4 con el comando: git checkout Bono
+4. Lo abrimos usando la IDE de su preferencia
+
+
 
 ## Ejecutar la aplicación
 1. Ejecute el comando: mvn clean
