@@ -17,7 +17,7 @@ import java.net.URL;
 public class HttpConnection {
 
     private static final String USER_AGENT = "Mozilla/5.0";
-    private static final String GET_URL = "http://localhost:36000";
+    private static final String GET_URL = "http://localhost:35000";
 
     public static String getResponse(String request) throws IOException {
 
