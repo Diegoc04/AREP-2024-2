@@ -9,28 +9,20 @@ package escuelaing.edu.co.calcreflex;
  * @author diego.castellanos-a
  */
 public class BubbleSort {
-        int[] solution = {};
-    int A;
-    int B;
-    boolean go;
-    public int[] BubbleSort(int[] lista ){
-        A = lista[0];
-        while(go){
-            for(int i = 1; i < lista.length - 2; i++ ){
-                int cont = 0;
-                if(A > lista[i]){
-                    B = lista[i];
-                    lista[i] = A;
-                    lista[i+1] = B;
-                    cont++;
-                }
-                if(cont==0){
-                    go = false;
+    public static int[] sort(int[] list) {
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 0; i < list.length - 1; i++) {
+                if (list[i] > list[i + 1]) {
+                    int temp = list[i];
+                    list[i] = list[i + 1];
+                    list[i + 1] = temp;
+                    swapped = true;
                 }
             }
-        }
-    solution = lista;
-    return solution;
-    }    
+        } while (swapped);
+        return list;
+    }
 }
 
