@@ -17,16 +17,29 @@ Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
 3. muevase a la rama Taller-4 con el comando: git checkout Bono
 4. Lo abrimos usando la IDE de su preferencia
 
+![image](https://github.com/user-attachments/assets/12bb4643-15ba-4ebd-8911-f785a766a235)
 
 
 ## Ejecutar la aplicación
-1. Ejecute el comando: mvn clean
-2. Ejecute el comando: mcn package
-3. Ejecute el comando: mvn compile
-4. Ejecute el comando: java -cp "target/classes;target/dependency/*" co.edu.escuelaing.RestServiceApplication
+1. Limpiamos y construimos el proyecto.
 
-El anterior comando limpiará las construcciones previas, compilará y luego ejecutará la aplicación.
+   ![image](https://github.com/user-attachments/assets/22729a3a-a7bc-436c-a35e-acfa65108e8d)
 
-Una vez tengamos el proyecto corriendo iremos a nuestro browser y pondremos la siguiente URL: http://localhost:35000
+2. Ejecutamos estas 2 clases
 
-## Mostrando la funcionalidad 
+   ![image](https://github.com/user-attachments/assets/a4e35e7e-4140-42c2-af76-2e4b0706d305)
+
+4. Entramos a localhost:35000 y localhost:36000
+  Servicio:
+
+![image](https://github.com/user-attachments/assets/894ab8ce-84fc-474c-84f2-f45a407e1694)
+
+
+![image](https://github.com/user-attachments/assets/98197234-8f7e-4c46-8c5d-b5056b0c2698)
+
+Fachada:
+
+![image](https://github.com/user-attachments/assets/517b2add-667d-4efc-8163-98a267befbce)
+
+![image](https://github.com/user-attachments/assets/e13364e6-c292-47ba-a697-62d92de1ad91)
+
