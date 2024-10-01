@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Customer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9; /* Mismo fondo que el de la tabla de clientes */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrar contenido */
+        }
+
+        /* Header styles */
+        h1 {
+            color: #333; /* Color del encabezado */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em; /* Tamaño de fuente más grande */
+            text-transform: uppercase; /* Texto en mayúsculas */
+        }
+
+        /* Form styles */
+        form {
+            background-color: white; /* Fondo blanco para el formulario */
+            padding: 20px; /* Relleno alrededor del formulario */
+            border-radius: 5px; /* Esquinas redondeadas */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
+            width: 90%; /* Ancho del formulario */
+            max-width: 500px; /* Ancho máximo */
+        }
+
+        label {
+            display: block; /* Mostrar etiquetas en bloque */
+            margin: 10px 0 5px; /* Margen alrededor de etiquetas */
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%; /* Ancho completo para entradas */
+            padding: 10px; /* Relleno dentro de las entradas */
+            margin-bottom: 15px; /* Espacio entre entradas */
+            border: 2px solid #ddd; /* Borde ligero para entradas */
+            border-radius: 4px; /* Esquinas redondeadas para entradas */
+            transition: border-color 0.3s; /* Transición suave para el borde */
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus {
+            border-color: #4A90E2; /* Color del borde al enfocar */
+            outline: none; /* Sin contorno al enfocar */
+        }
+
+        /* Button styles */
+        input[type="submit"] {
+            background-color: #4A90E2; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            padding: 10px 15px; /* Relleno del botón */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Esquinas redondeadas */
+            cursor: pointer; /* Cursor en forma de puntero */
+            transition: background-color 0.3s; /* Transición suave para el color de fondo */
+            width: 100%; /* Ancho completo para el botón */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357ABD; /* Color más oscuro al pasar el cursor */
+        }
+
+        /* Alert styles */
+        .alert {
+            margin-top: 20px; /* Margen superior para alertas */
+            padding: 15px; /* Relleno para alertas */
+            border-radius: 4px; /* Esquinas redondeadas */
+            width: 90%; /* Ancho del contenedor de alerta */
+            max-width: 500px; /* Ancho máximo del contenedor de alerta */
+            text-align: center; /* Centrar texto en alertas */
+        }
+
+        .alert-success {
+            color: #3c763d; /* Color del texto de éxito */
+            background-color: #dff0d8; /* Fondo verde claro para éxito */
+            border: 1px solid #d6e9c6; /* Borde verde para éxito */
+        }
+
+        .alert-danger {
+            color: #a94442; /* Color del texto de error */
+            background-color: #f2dede; /* Fondo rojo claro para error */
+            border: 1px solid #ebccd1; /* Borde rojo para error */
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Customer</h1>
+    <form action="/Customers/createCustomer/create" method="POST">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required>
+
+        <label for="size">Size:</label>
+        <input type="number" id="size" name="size" required>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required>
+
+        <input type="submit" value="Create Customer">
+    </form>
+
+    <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
+    <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
+</body>
+</html>
