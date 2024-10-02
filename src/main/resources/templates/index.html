@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customers</title>
+    <title>Clientes</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -182,7 +182,7 @@
             <!-- Iterate over the customer list from the model -->
             <tr th:each="customer : ${customers}">
                 <!-- Form to update the customer -->
-                <form th:action="@{/Customers/update/{id}(id=${customer.id})}" method="POST">
+                <form th:action="@{/Clientes/actualizar/{id}(id=${customer.id})}" method="POST">
                     <td th:text="${customer.id}"></td>
                     <td>
                         <input type="text" th:value="${customer.firstName}" name="firstName" readonly>
@@ -208,7 +208,7 @@
                 </form>
                 <!-- Form to delete the customer -->
                 <td>
-                    <form th:action="@{/Customers/delete/{id}(id=${customer.id})}" method="POST">
+                    <form th:action="@{/Clientes/eleminar/{id}(id=${customer.id})}" method="POST">
                         <input type="submit" value="Delete">
                     </form>
                 </td>
@@ -216,25 +216,28 @@
         </tbody>
     </table>
 
+    <!-- Pagination -->
     <div>
         <ul class="pagination">
             <li th:if="${currentPage > 0}">
-                <a th:href="@{/Customers(page=${currentPage - 1})}">Previous</a>
+                <a th:href="@{/Clientes(page=${currentPage - 1})}">Previous</a>
             </li>
             <li th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
                 th:classappend="${i == currentPage} ? 'active'">
-                <a th:href="@{/Customers(page=${i})}" th:text="${i + 1}">1</a>
+                <a th:href="@{/Clientes(page=${i})}" th:text="${i + 1}">1</a>
             </li>
             <li th:if="${currentPage < totalPages - 1}">
-                <a th:href="@{/Customers(page=${currentPage + 1})}">Next</a>
+                <a th:href="@{/Clientes(page=${currentPage + 1})}">Next</a>
             </li>
         </ul>
     </div>
 
+    <!-- Button to create a new customer -->
     <div class="button-container">
-        <button onclick="location.href='/Customers/createCustomer'">Create Customer</button>
+        <button onclick="location.href='/Clientes/crearCliente'">Create Customer</button>
     </div>
 
+    <!-- Success and error messages -->
     <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
     <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>    
 </body>

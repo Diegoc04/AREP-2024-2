@@ -24,31 +24,35 @@ public class CustomerService {
     }
 
     /**
-     * Obtiene todos los clientes.
-     *
-     * @return Lista de todos los clientes.
+     * @return 
      */
     public List<Customer> getAllCustomer() {
         return customerRepository.findAll();
     }
 
     /**
-     * Crea un nuevo cliente.
-     *
-     * @param customer Objeto Customer que se va a guardar.
-     * @return Cliente guardado.
+     * @param customer 
+     * @return
      */
     public Customer saveCustomer(Customer customer) {
         return customerRepository.save(customer);
     }
 
+        /**
+     * @param id 
+     * @throws ResourceAccessException 
+     */
+    public void deleteCustomer(Long id) {
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -> new ResourceAccessException("Customer not found with id " + id));
+        customerRepository.delete(customer);
+    }    
+
     /**
-     * Actualiza un cliente existente.
-     *
-     * @param id ID del cliente a actualizar.
-     * @param newCustomerData Datos nuevos del cliente.
-     * @return Cliente actualizado.
-     * @throws RelationNotFoundException si no se encuentra el cliente con el ID proporcionado.
+     * @param id 
+     * @param newCustomerData 
+     * @return 
+     * @throws RelationNotFoundException 
      */
     public Customer updateCustomer(Long id, Customer newCustomerData) throws RelationNotFoundException {
         return customerRepository.findById(id)
@@ -65,23 +69,9 @@ public class CustomerService {
     }
 
     /**
-     * Elimina un cliente por su ID.
-     *
-     * @param id ID del cliente a eliminar.
-     * @throws ResourceAccessException si no se encuentra el cliente con el ID proporcionado.
-     */
-    public void deleteCustomer(Long id) {
-        Customer customer = customerRepository.findById(id)
-                .orElseThrow(() -> new ResourceAccessException("Customer not found with id " + id));
-        customerRepository.delete(customer);
-    }
-
-    /**
-     * Obtiene una lista paginada de clientes.
-     *
-     * @param page Número de página a recuperar.
-     * @param size Tamaño de la página.
-     * @return Página de clientes.
+     * @param page 
+     * @param size
+     * @return 
      */
     public Page<Customer> getCustomers(int page, int size) {
         return customerRepository.findAll(PageRequest.of(page, size));
