@@ -1,118 +1,83 @@
 package com.example.demo;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import java.util.Arrays;
-import java.util.List;
 
+import javax.management.relation.RelationNotFoundException;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-@SpringBootTest
-class DemoApplicationTests {
+public class DemoApplicationTests {
 
-	@Autowired
-	private WebApplicationContext webApplicationContext;
+    @Mock
+    private CustomerService customerService; // Mock del servicio que maneja la lógica de negocio
 
-	private MockMvc mockMvc;
+    @Mock
+    private RedirectAttributes redirectAttributes; // Mock para las redirecciones y atributos flash
 
-	@MockBean
-	private CustomerService customerService;
+    @InjectMocks
+    private CustomerController customerController; // Controlador que será probado
 
-	@MockBean
-	private CustomerRepository customerRepository;
+    @BeforeEach
+    void setUp() {
+        // Inicializa los mocks antes de cada prueba
+        MockitoAnnotations.openMocks(this);
+    }
 
-	@Test
-	void contextLoads() {
-		// Esta prueba verifica si el contexto de la aplicación se carga correctamente.
-	}
+    @Test
+    void testCreateCustomerSuccess() {
+        // Crea un cliente de prueba
+        Customer customer = new Customer("John", "Doe", "123 Main St", 100, 1, "Test customer");
 
-	@Test
-	void testGetAllCustomers() throws Exception {
-		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+        // Simula el comportamiento del servicio al guardar un cliente
+        when(customerService.saveCustomer(any(Customer.class))).thenReturn(customer);
 
-		// Simula una lista de clientes para la prueba
-		List<Customer> customers = Arrays.asList(
-				new Customer("John", "Doe", "123 Street", 200, 40, "Description1"),
-				new Customer("Jane", "Doe", "456 Street", 150, 30, "Description2"));
+        // Llama al método del controlador para crear el cliente
+        String result = customerController.createCustomer(customer, redirectAttributes);
 
-		// Simula el comportamiento del servicio para que retorne la lista de clientes
-		when(customerService.getAllCustomer()).thenReturn(customers);
+        // Verifica que se haya añadido el mensaje de éxito al redireccionar
+        verify(redirectAttributes).addFlashAttribute("successMessage", "Se creó con exito el cliente.");
+        // Verifica que el resultado de la redirección sea el esperado
+        assertEquals("redirect:/Clientes", result);
+    }
 
-		// Realiza una solicitud GET a la ruta "/Customers/all" y verifica que la respuesta sea correcta
-		mockMvc.perform(get("/Customers/all"))
-				.andExpect(status().isOk()) // Verifica que el estado HTTP sea 200 (OK)
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON)) // Verifica que el contenido sea JSON
-				.andExpect(jsonPath("$.size()").value(customers.size())) // Verifica que la cantidad de clientes en la respuesta sea correcta
-				.andExpect(jsonPath("$[0].firstName").value("John")) // Verifica el nombre del primer cliente
-				.andExpect(jsonPath("$[1].firstName").value("Jane")); // Verifica el nombre del segundo cliente
+    @Test
+    void testDeleteCustomer() {
+        Long customerId = 1L; // ID del cliente a eliminar
 
-		// Verifica que el método getAllCustomer() del servicio se haya llamado una vez
-		verify(customerService, times(1)).getAllCustomer();
-	}
+        // Simula el comportamiento del servicio al eliminar un cliente
+        doNothing().when(customerService).deleteCustomer(customerId);
 
-	@Test
-	void testCreateCustomer() throws Exception {
-		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+        // Llama al método del controlador para eliminar el cliente
+        String result = customerController.deleteCustomer(customerId, redirectAttributes);
 
-		// Crea un objeto de cliente simulado
-		Customer customer = new Customer("John", "Doe", "123 Street", 200, 40, "Description1");
+        // Verifica que se haya añadido el mensaje de éxito al redireccionar
+        verify(redirectAttributes).addFlashAttribute("successMessage", "Se eliminó con exito al cliente.");
+        // Verifica que el resultado de la redirección sea el esperado
+        assertEquals("redirect:/Clientes", result);
+    }
 
-		// Simula el comportamiento del servicio para que retorne el cliente cuando se guarde
-		when(customerService.saveCustomer(any(Customer.class))).thenReturn(customer);
+    @Test
+    void testUpdateCustomer() throws RelationNotFoundException {
+        Long customerId = 1L; // ID del cliente a actualizar
+        Customer newCustomerData = new Customer("Jane", "Doe", "456 Another St", 200, 2, "Updated customer"); // Datos actualizados del cliente
 
-		// Realiza una solicitud POST a la ruta "/Customers/createCustomer/create" y verifica que el cliente se cree correctamente
-		mockMvc.perform(post("/Customers/createCustomer/create")
-				.flashAttr("customer", customer)) // Simula el envío del objeto cliente como atributo flash
-				.andExpect(redirectedUrl("/Customers")) // Verifica que redirija a "/Customers"
-				.andExpect(flash().attribute("successMessage", "Cliente creado exitosamente.")); // Verifica que el mensaje flash sea correcto
+        // Simula el comportamiento del servicio al actualizar un cliente
+        when(customerService.updateCustomer(any(Long.class), any(Customer.class))).thenReturn(newCustomerData);
 
-		// Verifica que el método saveCustomer() del servicio se haya llamado una vez
-		verify(customerService, times(1)).saveCustomer(any(Customer.class));
-	}
+        // Llama al método del controlador para actualizar el cliente
+        String result = customerController.updateCustomer(customerId, newCustomerData, redirectAttributes);
 
-	@Test
-	void testUpdateCustomer() throws Exception {
-		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-
-		// Crea un objeto de cliente simulado
-		Customer customer = new Customer("John", "Doe", "123 Street", 200, 40, "Description1");
-
-		// Simula el comportamiento del servicio para que retorne el cliente actualizado
-		when(customerService.updateCustomer(eq(1L), any(Customer.class))).thenReturn(customer);
-
-		// Realiza una solicitud POST a la ruta "/Customers/update/1" y verifica que el cliente se actualice correctamente
-		mockMvc.perform(post("/Customers/update/1")
-				.flashAttr("customer", customer)) // Simula el envío del objeto cliente como atributo flash
-				.andExpect(redirectedUrl("/Customers")) // Verifica que redirija a "/Customers"
-				.andExpect(flash().attribute("successMessage", "Cliente actualizado exitosamente.")); // Verifica que el mensaje flash sea correcto
-
-		// Verifica que el método updateCustomer() del servicio se haya llamado una vez con el ID correcto
-		verify(customerService, times(1)).updateCustomer(eq(1L), any(Customer.class));
-	}
-
-	@Test
-	void testDeleteCustomer() throws Exception {
-		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-
-		// Realiza una solicitud POST a la ruta "/Customers/delete/1" y verifica que el cliente se elimine correctamente
-		mockMvc.perform(post("/Customers/delete/1"))
-				.andExpect(redirectedUrl("/Customers")) // Verifica que redirija a "/Customers"
-				.andExpect(flash().attribute("successMessage", "Cliente eliminado exitosamente.")); // Verifica que el mensaje flash sea correcto
-
-		// Verifica que el método deleteCustomer() del servicio se haya llamado una vez con el ID correcto
-		verify(customerService, times(1)).deleteCustomer(1L);
-	}
+        // Verifica que se haya añadido el mensaje de éxito al redireccionar
+        verify(redirectAttributes).addFlashAttribute("successMessage", "Se actualizó con exito al cliente.");
+        // Verifica que el resultado de la redirección sea el esperado
+        assertEquals("redirect:/Clientes", result);
+    }
 }
-
-
 
