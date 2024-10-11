@@ -1,14 +1,16 @@
 package com.escuelaing.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection = "Users")
+@Document(collection = "Taller6")
 public class User {
 
     @Id
+    private String id; // Generado automáticamente por MongoDB
+    
     @Indexed(unique = true)
     private String email;
 
@@ -30,6 +32,14 @@ public class User {
     }
 
     // Getters y Setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getEmail() {
         return email;
     }
