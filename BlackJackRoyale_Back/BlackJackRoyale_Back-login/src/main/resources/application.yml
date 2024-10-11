@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://santiagotorresacosta29:rH9ITs8F4cbNdMxf@arep.lcigk.mongodb.net/BlackJack?retryWrites=true&w=majority&appName=AREP
+
