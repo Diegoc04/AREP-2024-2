@@ -31,6 +31,6 @@ Una vez ambos estén corriendo podemos ir a la url: http://localhost:3000/
 
 ## Video presentación 
 El siguiente enlace contiene el video en el que se muestra la funcionalidad de la aplicación.
-[Link]([https://www.youtube.com/watch?v=2OG1bqW0_cc&ab_channel=DiegoCastellanos](https://www.youtube.com/watch?v=fmX1lC0wjOI))
+[Link](https://www.youtube.com/watch?v=fmX1lC0wjOI)
 
 
