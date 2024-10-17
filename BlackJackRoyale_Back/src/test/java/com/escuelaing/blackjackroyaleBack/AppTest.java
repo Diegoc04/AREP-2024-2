@@ -3,7 +3,6 @@ package com.escuelaing.blackjackroyaleBack;
 
 import com.escuelaing.controller.UserController;
 import com.escuelaing.model.User;
-import com.escuelaing.repository.UserRepository;
 import com.escuelaing.service.UserService;
 
 import static org.mockito.Mockito.*;
@@ -11,15 +10,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.http.MediaType.*;
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -65,9 +61,7 @@ public class AppTest {
 
     @Test
     public void testAddUser() throws Exception {
-        // Crea un usuario de prueba para la prueba de adición.
-        User user = new User("test@example.com", "Test User", "password");
-
+      
         // Realiza la petición POST para registrar un nuevo usuario y verifica la respuesta.
         mockMvc.perform(post("/blackjack/register")
                 .contentType(APPLICATION_JSON)
