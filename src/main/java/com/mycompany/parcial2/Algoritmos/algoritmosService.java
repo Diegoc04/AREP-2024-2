@@ -46,16 +46,17 @@ public class algoritmosService {
         }
         int inicio = lista[0];
         int fin = lista[-1];
-        while(go){
-            int medio = lista[lista.length/2];
+        int medio = lista[lista.length/2];
             if(C == medio){
                 return lista.length/2;
-            }else if(medio > elemento){
-                
             }
-       
-            
-    } 
+        while(go){
+           if(medio > elemento){
+               medio = lista[lista.length/2];
+               
+           }
+        }
+    
         return 3;
     }
 }
