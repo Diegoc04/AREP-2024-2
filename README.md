@@ -1,4 +1,5 @@
 # Parcial 2
+Crear una solución web que explore dos algoritmos de busqueda: búsqueda lineal y búsqueda binaria. El programa debe estar desplegado en tres maquinas virtuales de Ec2 de AWS.
 
 ![image](https://github.com/user-attachments/assets/5ae3fd80-8c43-4a60-8cf5-61e3e3a7bf01)
 
