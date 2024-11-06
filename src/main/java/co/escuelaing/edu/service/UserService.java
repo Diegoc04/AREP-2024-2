@@ -69,7 +69,7 @@ public class UserService {
     }
 
     private MongoCollection<Document> getCollection() {
-        return mongoClient.getDatabase("quarkustwitter").getCollection("users");
+        return mongoClient.getDatabase("Twitter").getCollection("User");
     }
 
     private String hashOfPassword(String password) {

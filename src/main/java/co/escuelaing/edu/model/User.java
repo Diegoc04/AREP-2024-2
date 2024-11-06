@@ -1,13 +1,12 @@
 package co.escuelaing.edu.model;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "User")
 public class User {
 
-    @Id
+    @Field(name = "password")
     private String password;
 
     @Field(name = "username")
