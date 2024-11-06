@@ -67,8 +67,13 @@
             <artifactId>jakarta.annotation-api</artifactId>
             <version>2.1.1</version>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>springtwitter</finalName>
