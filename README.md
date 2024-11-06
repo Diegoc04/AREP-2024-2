@@ -66,6 +66,7 @@ mvn test
 ## Autores
 
 Daniel Santiago Torres Acosta [https://github.com/RulosS290](https://github.com/RulosS290)
+
 Diego Fernando Castellanos Amaya [https://github.com/Diegoc04/AREP-2024-2](https://github.com/Diegoc04/AREP-2024-2)
 
 ## Agradecimientos
