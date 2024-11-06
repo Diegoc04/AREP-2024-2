@@ -1,19 +1,15 @@
-package co.escuelaing.edu.model;
+package edu.eci.arep.model;
 
 import java.time.LocalDate;
 
-import org.hibernate.validator.constraints.Length;
+import jakarta.validation.constraints.Size;
 
-/**
- * Represents a post made by a user.
- */
 public class Post {
 
     private String id;
     private String username;
     private LocalDate creationDate;
-    
-    @Length(max = 140)
+    @Size(max = 140)
     private String content;
 
     public Post() {
@@ -25,7 +21,6 @@ public class Post {
         this.content = content;
     }
 
-    // Getter and Setter for 'id'
     public String getId() {
         return id;
     }
@@ -34,7 +29,6 @@ public class Post {
         this.id = id;
     }
 
-    // Getter and Setter for 'username'
     public String getUsername() {
         return username;
     }
@@ -43,7 +37,6 @@ public class Post {
         this.username = username;
     }
 
-    // Getter and Setter for 'creationDate'
     public LocalDate getCreationDate() {
         return creationDate;
     }
@@ -52,15 +45,12 @@ public class Post {
         this.creationDate = creationDate;
     }
 
-    // Getter and Setter for 'content'
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
-        if (content != null && content.length() > 140) {
-            throw new IllegalArgumentException("Content length exceeds the maximum limit of 140 characters");
-        }
         this.content = content;
     }
+
 }

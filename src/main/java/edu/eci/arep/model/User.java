@@ -1,17 +1,9 @@
-package co.escuelaing.edu.model;
+package edu.eci.arep.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-
-@Document(collection = "User")
 public class User {
 
-    @Field(name = "password")
-    private String password;
-
-    @Field(name = "username")
     private String username;
-    
+    private String password;
 
     public User() {
     }

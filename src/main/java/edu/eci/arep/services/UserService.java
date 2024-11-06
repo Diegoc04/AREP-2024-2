@@ -1,4 +1,4 @@
-package co.escuelaing.edu.service;
+package edu.eci.arep.services;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -9,27 +9,27 @@ import java.util.List;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
-import co.escuelaing.edu.model.User;
+import edu.eci.arep.model.User;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
-@Service
+@ApplicationScoped
 public class UserService {
 
-    @Autowired
-    private MongoClient mongoClient;
-    
+    @Inject
+    MongoClient mongoClient;
     private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
-    @jakarta.annotation.PostConstruct
-    public void init() {
+    @PostConstruct
+    void init() {
         addUser(new User("diego", "diejoto"));
-        addUser(new User("daniel", "RulosS"));
+        addUser(new User("daniel", "rulos"));
     }
 
     public List<User> getUsers() {
@@ -69,7 +69,7 @@ public class UserService {
     }
 
     private MongoCollection<Document> getCollection() {
-        return mongoClient.getDatabase("Twitter").getCollection("User");
+        return mongoClient.getDatabase("quarkustwitter").getCollection("users");
     }
 
     private String hashOfPassword(String password) {
