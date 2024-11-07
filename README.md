@@ -1,6 +1,41 @@
 # Build a Simple LLM Application with LCEL
 Crear una aplicación LLM simple con LangChain. Traducirá texto del inglés a otro idioma.
 
+## Empezando
+Estas instrucciones le permitirán obtener una copia del proyecto en funcionamiento en su máquina local para fines de desarrollo y prueba.
+
+## prerrequisitos
+* Git - Control de versiones.
+* python - Lenguaje de programación.
+* OPENAI_API_KEY - Debido a temas de seguridad no es posible alojar la llave en el repositorio, por eso debe contar con una para reemplazarla en el codigo para que funcione.
+
+## Instalación 
+Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
+
+1. clone el proyecto con el siguiente comando: git clone https://github.com/Diegoc04/AREP-2024-2.git
+2. Muevase a la carpeta Arep-2024-2 con el comando: cd Arep-2024-2/
+3. muevase a la rama Taller-LangChain con el comando: git checkout Taller-LangChain
+4. Abra el proyecto en su IDE y en el archivo "langchainserver.py" en la linea 11 modifique "API_KEY" con su llave.
+
+## Ejecutar la aplicación
+1. Ejecute el archivo "langchainserver.py", deberia verse de la siguiente manera:
+
+   ![image](https://github.com/user-attachments/assets/48fca4ae-0de8-4106-b8e6-0eeebb519c7f)
+
+3. Dirijase a la siguiente URL: http://localhost:8000/chain/playground/
+
+![image](https://github.com/user-attachments/assets/b4d01deb-3a7b-43df-9a7b-be456471903f)
+
+# Funcionamiento
+
+![image](https://github.com/user-attachments/assets/bb14c217-4822-49f2-b45a-a647c4da3cd2)
+
+Se coloca como lenguage el español y el emsaje es "this works like a charm!" el cual se traduce correctamente.
+
+![image](https://github.com/user-attachments/assets/9d45eeec-5110-41ba-8fb5-f78008827408)
+
+Se coloca como lenguaje el italiano y el mensaje es "hi" el cual se traduce correctamente.
+
 # Arquitectura 
 
 1. Cliente: Envía una solicitud HTTP con parámetros específicos (idioma y texto a traducir).
@@ -52,18 +87,23 @@ Utiliza add_routes de langserve para exponer la cadena chain como un endpoint en
 
 Inicia el servidor ASGI utilizando Uvicorn, que aloja la aplicación FastAPI. El servidor escucha en localhost en el puerto 8000.
 
-# Funcionamiento
+## Construido con
+[Visual Studio Code]([https://netbeans.apache.org/front/main/download/nb22/](https://code.visualstudio.com/)) - entorno de desarrollo.
 
-Se corre la clase langchainserver.py y se abre la siguiente URL: http://localhost:8000/chain/playground/
 
-![image](https://github.com/user-attachments/assets/f0648f99-dce5-4e7e-b33c-ac4c9e9676ae)
+[python]([https://www.java.com/es/](https://www.python.org/)) - Lenguaje de programación.
 
-![image](https://github.com/user-attachments/assets/bb14c217-4822-49f2-b45a-a647c4da3cd2)
+[jupyter]([https://www.docker.com/](https://jupyter.org/)) - Documentación de codigo en vivo.
 
-Se coloca como lenguage el español y el emsaje es "this works like a charm!" el cual se traduce correctamente.
+## Versiones 
+Python 3.12.5
 
-![image](https://github.com/user-attachments/assets/9d45eeec-5110-41ba-8fb5-f78008827408)
+Visual Studio Code: 1.95.1
 
-Se coloca como lenguaje el italiano y el mensaje es "hi" el cual se traduce correctamente.
+## Autores
+Diego Fernando Castellanos Amaya - [Diegoc04](https://github.com/Diegoc04)
+
+## Agradecimientos
+* Al profesor Daniel Benavides por impartir esta clase y tener la pasión de enseñar.
 
 
