@@ -18,7 +18,10 @@ Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
 4. Abra el proyecto en su IDE y en el archivo "langchainserver.py" en la linea 11 modifique "API_KEY" con su llave.
 
 ## Ejecutar la aplicación
-1. Ejecute el archivo "langchainserver.py", deberia verse de la siguiente manera:
+
+1. ejecute todas als celdas del archivo "langchainbasicapp.ipynb" para instalar las dependecias necesarias.
+
+2. Ejecute el archivo "langchainserver.py", deberia verse de la siguiente manera:
 
    ![image](https://github.com/user-attachments/assets/48fca4ae-0de8-4106-b8e6-0eeebb519c7f)
 
