@@ -21,7 +21,7 @@ Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
 
 1. ejecute todas las celdas del archivo "langchainbasicapp.ipynb" para instalar las dependecias necesarias, de ser necesario, modifique "API_KEY" con su llave en la tercera celda de codigo.
 
-2. Ejecute el archivo "langchainserver.py", puede utilizar el siguiente comando: python RAGserver.py
+2. Ejecute el archivo "langchainserver.py", puede utilizar el siguiente comando: python RAGserver.py o correrlo directamente en el IDE.
 
    ![image](https://github.com/user-attachments/assets/8ab9ca07-0f2b-49cc-b1fd-a518c68b40cd)
 
