@@ -1,0 +1,29 @@
+[
+    {"id": "1", "text": "Madrid es la capital de España."},
+    {"id": "2", "text": "París es la capital de Francia."},
+    {"id": "3", "text": "Berlín es la capital de Alemania."},
+    {"id": "4", "text": "Roma es la capital de Italia."},
+    {"id": "5", "text": "Lisboa es la capital de Portugal."},
+    {"id": "6", "text": "Londres es la capital de Reino Unido."},
+    {"id": "7", "text": "Moscú es la capital de Rusia."},
+    {"id": "8", "text": "Tokio es la capital de Japón."},
+    {"id": "9", "text": "Pekín es la capital de China."},
+    {"id": "10", "text": "Ottawa es la capital de Canadá."},
+    {"id": "11", "text": "Brasilia es la capital de Brasil."},
+    {"id": "12", "text": "Canberra es la capital de Australia."},
+    {"id": "13", "text": "Nueva Delhi es la capital de India."},
+    {"id": "14", "text": "Ciudad de México es la capital de México."},
+    {"id": "15", "text": "Buenos Aires es la capital de Argentina."},
+    
+    {"id": "16", "text": "Super Mario Bros es un personaje de videojuego creado por Nintendo, protagonista de la serie de juegos 'Super Mario'."},
+    {"id": "17", "text": "The Legend of Zelda es una popular serie de videojuegos de aventuras creada por Nintendo."},
+    {"id": "18", "text": "Pokémon es una franquicia de videojuegos creada por Nintendo y Game Freak que se centra en criaturas que los humanos pueden capturar y entrenar para luchar entre sí."},
+    {"id": "19", "text": "Donkey Kong es un videojuego de arcade creado por Nintendo en 1981, que introdujo a los personajes Mario y Donkey Kong."},
+    {"id": "20", "text": "Metroid es una serie de videojuegos de ciencia ficción desarrollada por Nintendo que sigue las aventuras de la cazarrecompensas Samus Aran."},
+    {"id": "21", "text": "Kirby es una franquicia de videojuegos creada por Nintendo que sigue a un personaje rosa llamado Kirby en su lucha contra el mal."},
+    {"id": "22", "text": "Animal Crossing es una serie de videojuegos de simulación de vida desarrollada por Nintendo, donde los jugadores viven en un pueblo habitado por animales antropomórficos."},
+    {"id": "23", "text": "Nintendo es una empresa de videojuegos japonesa fundada en 1889, conocida por crear franquicias como Mario, Zelda, y Pokémon."},
+    {"id": "24", "text": "La consola Nintendo Switch fue lanzada en 2017 y es una consola híbrida que se puede usar como consola de sobremesa o portátil."},
+    {"id": "25", "text": "Mario Kart es una serie de juegos de carreras desarrollada por Nintendo, donde los personajes de la franquicia Mario compiten en divertidas pistas con ítems especiales."}
+]
+

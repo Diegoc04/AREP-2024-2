@@ -1,6 +1,6 @@
 // Función para enviar preguntas
 async function submitQuestion(event) {
-    event.preventDefault();  // Evita que el formulario recargue la página
+    event.preventDefault();
     const question = document.getElementById('question').value;
     const response = await fetch('/ask', {
         method: 'POST',
@@ -10,12 +10,11 @@ async function submitQuestion(event) {
         body: new URLSearchParams({ 'question': question })
     });
     const result = await response.json();
-    document.getElementById('response').innerText = result.answer || result.error;
+    document.getElementById('response').innerText = result.answer || "Error en la respuesta.";
 }
 
-// Función para enviar traducción
 async function submitTranslation(event) {
-    event.preventDefault();  // Evita que el formulario recargue la página
+    event.preventDefault();
     const text = document.getElementById('text').value;
     const language = document.getElementById('language').value;
     const response = await fetch('/translate', {
@@ -28,3 +27,4 @@ async function submitTranslation(event) {
     const result = await response.json();
     document.getElementById('translation').innerText = result.translation || "Error en la traducción.";
 }
+
