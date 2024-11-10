@@ -15,82 +15,104 @@ Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
 1. clone el proyecto con el siguiente comando: git clone https://github.com/Diegoc04/AREP-2024-2.git
 2. Muevase a la carpeta Arep-2024-2 con el comando: cd Arep-2024-2/
 3. muevase a la rama RAG con el comando: git checkout RAG
-4. Abra el proyecto en su IDE y en el archivo "RAGserver.py" en la linea 8 modifique "API_KEY" con su llave.
+4. Abra el proyecto en su IDE y en el archivo "RAGserver.py" en la linea 12 modifique "API_KEY" con su llave.
 
 ## Ejecutar la aplicación
 
-1. ejecute las celdas del archivo "langchainbasicapp.ipynb" para instalar las dependecias necesarias, de ser necesario, modifique "API_KEY" con su llave en la tercera celda de codigo.
+1. ejecute las celdas del archivo "langchainbasicapp.ipynb" para instalar las dependecias necesarias, de ser necesario, modifique "API_KEY" con su llave en la decima celda de codigo.
 
-2. Ejecute el archivo "langchainserver.py", puede utilizar el siguiente comando: python RAGserver.py o correrlo directamente en el IDE.
+2. Ejecute el archivo "langchainserver.py", puede utilizar el siguiente comando: 'python RAGserver.py' o correrlo directamente en el IDE.
 
-   ![image](https://github.com/user-attachments/assets/8ab9ca07-0f2b-49cc-b1fd-a518c68b40cd)
+   ![image](https://github.com/user-attachments/assets/e004521e-750d-4738-8f39-2df1e3530f85)
 
 
 3. Dirijase a la siguiente URL: http://localhost:8000/ask/playground
 
-![image](https://github.com/user-attachments/assets/935972c7-9342-48e3-968c-d9a6b968021e)
+![image](https://github.com/user-attachments/assets/e6d13cf1-2f3d-4e13-a890-7b9c6713359b)
+
 
 # Funcionamiento
 
-![image](https://github.com/user-attachments/assets/43e5941c-890e-4495-992d-803911948ca2)
+RAG (Retrieval-Augmented Generation),  usa información de su base de datos (normalmente una base de datos vectorial que almacena representaciones de texto o "embeddings") para responder preguntas.
+La información que usa para responder las preguntas se encuentra en el archivo documents.json, si hacemos uan pregunta la cual no tenga del .json no sdira que no tiene información, en caso del traductor usa el modelo de gpt-4 con acceso libre a sus librerias para poder traducir los textos del ingles a los idiomas pre-establecidos.
 
-Le hacemos una pregunta al modelo y esperamos su respuesta.
 
-![image](https://github.com/user-attachments/assets/422c0d67-fc82-4efc-b299-e3d85c1232b8)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c79ea30a-1229-4df6-8f3a-308eb9094853" alt="image">
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/24af3e3e-a100-4d61-a72a-585549f9d8f3" alt="image">
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0844c39-fdae-4014-85c4-f436f7ce7388" alt="image">
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7bf4efbc-5ece-4dd1-8dc2-1c8c4f4ef89c" alt="image">
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/422c0d67-fc82-4efc-b299-e3d85c1232b8" alt="image">
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1133a268-4616-4be0-a753-017aae80cbf6" alt="image">
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/947fa8e6-653e-43d6-a519-5f557a339580" alt="image">
+</p>
 
-le pasamos un texto y esperamos su traducción.
 
-# Arquitectura 
 
-### Componentes de la Arquitectura
 
-Frontend (Cliente):
+# Arquitectura y sus componentes
 
-HTML: La estructura de la página está definida en un archivo HTML (playground.html), incluye formularios para realizar preguntas y solicitar traducciones.
+1. FastAPI como Framework Principal de la API:
+   
+FastAPI es el framework principal para construir el API. Maneja la lógica de las rutas y la comunicación con el cliente.
+Define los endpoints ask y translate, los cuales reciben solicitudes HTTP POST, además de servir una página HTML estática para probar la API.
+Monta archivos estáticos para incluir los recursos necesarios como CSS y JavaScript en el playground.
 
-CSS: El archivo styles.css define el diseño y estilo visual de la interfaz de usuario.
+2. Base de Datos Vectorial (VectorDatabase):
+   
+Este componente usa FAISS (Facebook AI Similarity Search) para realizar búsquedas vectoriales.
+FAISS permite almacenar y recuperar documentos basados en similitud, con embeddings generados por el modelo de lenguaje de OpenAI.
+Los documentos se almacenan como embeddings en un índice vectorial, lo que facilita la búsqueda rápida y precisa de los textos más relevantes para una pregunta.
+El modelo de embeddings utilizado es OpenAIEmbeddings, que transforma cada documento y consulta en un vector numérico de 1536 dimensiones.
 
-JavaScript: El archivo script.js contiene funciones que envían solicitudes HTTP a los endpoints del backend y maneja las respuestas para mostrarlas en la interfaz de usuario sin recargar la página.
+3. Modelo de Lenguaje (ChatOpenAI):
+   
+ChatOpenAI se encarga de procesar el contexto y la pregunta, generando respuestas en lenguaje natural.
+Este componente recibe prompts formateados que incluyen contexto específico (documentos recuperados) y la pregunta del usuario.
+Funciona también para la funcionalidad de traducción, donde toma el texto y el idioma objetivo y genera la traducción correspondiente.
 
-### Backend (Servidor):
+Esto permite una administración ordenada de recursos y evita que se mantengan abiertos recursos de manera innecesaria.
 
-FastAPI: FastAPI es el framework que se utiliza para el servidor web. Define las rutas HTTP (/ask y /translate) y maneja las solicitudes del frontend.
+4. Documentos JSON:
+   
+Los documentos iniciales se cargan desde un archivo JSON (documents.json), que contiene el contenido de texto que se usa para responder preguntas.
+Estos documentos se convierten en embeddings y se cargan en la base de datos vectorial al iniciar la aplicación.
 
-LangChain y OpenAI API: FastAPI integra el modelo ChatOpenAI a través de la biblioteca LangChain, que envía preguntas al modelo de lenguaje de OpenAI (GPT-4) y devuelve respuestas o traducciones.
+5. Interfaz de Usuario en HTML y JavaScript:
+   
+La aplicación incluye un playground en HTML donde los usuarios pueden realizar preguntas o traducciones directamente.
+La lógica del frontend está en JavaScript, que envía las solicitudes a los endpoints /ask y /translate y actualiza el contenido en la interfaz.
 
-### Comunicación entre Cliente y Servidor:
+6. Pruebas Unitarias con Pytest:
+   
+Se incluye un conjunto de pruebas unitarias que usan pytest y TestClient de FastAPI para simular solicitudes HTTP.
+Se utiliza una versión simulada del modelo de lenguaje (FakeLLM) para verificar el funcionamiento de los endpoints sin depender de la API de OpenAI, lo cual facilita las pruebas en entornos controlados.
 
-Fetch API: El frontend utiliza fetch() en JavaScript para realizar solicitudes HTTP POST asíncronas al servidor.
+## Flujo de funcionamiento
 
-Respuestas JSON: El servidor responde en formato JSON, que el JavaScript en el frontend procesa para mostrar la respuesta o traducción en la interfaz de usuario.
+1. Carga de Documentos: Al iniciar, los documentos se cargan en la base de datos vectorial desde un archivo JSON.
+2. Consulta y Recuperación: El endpoint /ask recibe la pregunta, consulta la base de datos vectorial para obtener documentos relevantes y construye un prompt que se envía al modelo de lenguaje.
+3. Traducción de Texto: El endpoint /translate recibe un texto y un idioma de destino, luego utiliza el modelo de lenguaje para generar una traducción.
+4. Respuesta al Usuario: Las respuestas se devuelven en formato JSON, ya sea para preguntas o traducciones, y se presentan en la interfaz si se utiliza el playground.
 
-### Interacción del Usuario:
-
-El usuario abre la aplicación en un navegador y ve la interfaz generada por el archivo HTML, con formularios para preguntas y traducción.
-
-Cuando el usuario envía una pregunta o texto a traducir, la función JavaScript captura la acción.
-
-### Comunicación Cliente-Servidor:
-
-La función JavaScript envía la información capturada a través de una solicitud HTTP POST al backend.
-
-El endpoint /ask maneja preguntas generales, y el endpoint /translate se encarga de traducciones a un idioma específico.
-
-### Procesamiento en el Backend:
-
-El backend recibe los datos y usa el modelo ChatOpenAI (de LangChain y OpenAI) para generar una respuesta a la pregunta o traducir el texto.
-
-FastAPI encapsula la respuesta en un JSON y la envía de vuelta al cliente.
-
-### Visualización de la Respuesta:
-
-El JavaScript en el frontend recibe el JSON con la respuesta o traducción y la muestra en el elemento adecuado de la interfaz de usuario sin recargar la página.
 
 # Ejecutar las pruebas 
 
 Para ejecutar las pruebas utilice el siguiente comando: pytest test_main.py
 
-![image](https://github.com/user-attachments/assets/8389b5e0-a093-4872-9577-15259b83a8e1)
+![image](https://github.com/user-attachments/assets/4be67840-e835-4058-b419-de7cbb725002)
 
 ## Construido con
 [Visual Studio Code]([https://netbeans.apache.org/front/main/download/nb22/](https://code.visualstudio.com/)) - entorno de desarrollo.
