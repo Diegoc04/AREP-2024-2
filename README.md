@@ -15,20 +15,21 @@ Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
 1. clone el proyecto con el siguiente comando: git clone https://github.com/Diegoc04/AREP-2024-2.git
 2. Muevase a la carpeta Arep-2024-2 con el comando: cd Arep-2024-2/
 3. muevase a la rama RAG con el comando: git checkout RAG
-4. Abra el proyecto en su IDE y en el archivo "RAGserver.py" en la linea 8 modifique "API_KEY" con su llave.
+4. Abra el proyecto en su IDE y en el archivo "RAGserver.py" en la linea 12 modifique "API_KEY" con su llave.
 
 ## Ejecutar la aplicación
 
-1. ejecute las celdas del archivo "langchainbasicapp.ipynb" para instalar las dependecias necesarias, de ser necesario, modifique "API_KEY" con su llave en la tercera celda de codigo.
+1. ejecute las celdas del archivo "langchainbasicapp.ipynb" para instalar las dependecias necesarias, de ser necesario, modifique "API_KEY" con su llave en la decima celda de codigo.
 
 2. Ejecute el archivo "langchainserver.py", puede utilizar el siguiente comando: python RAGserver.py o correrlo directamente en el IDE.
 
-   ![image](https://github.com/user-attachments/assets/8ab9ca07-0f2b-49cc-b1fd-a518c68b40cd)
+   ![image](https://github.com/user-attachments/assets/e004521e-750d-4738-8f39-2df1e3530f85)
 
 
-3. Dirijase a la siguiente URL: http://localhost:8000/ask/playground
+3. Dirijase a la siguiente URL: http://127.0.0.1:8000/ask/playground
 
-![image](https://github.com/user-attachments/assets/935972c7-9342-48e3-968c-d9a6b968021e)
+![image](https://github.com/user-attachments/assets/4bf0aaa0-e736-47c1-b21e-a7334b319e4b)
+
 
 # Funcionamiento
 
@@ -90,7 +91,7 @@ El JavaScript en el frontend recibe el JSON con la respuesta o traducción y la 
 
 Para ejecutar las pruebas utilice el siguiente comando: pytest test_main.py
 
-![image](https://github.com/user-attachments/assets/8389b5e0-a093-4872-9577-15259b83a8e1)
+![image](https://github.com/user-attachments/assets/4be67840-e835-4058-b419-de7cbb725002)
 
 ## Construido con
 [Visual Studio Code]([https://netbeans.apache.org/front/main/download/nb22/](https://code.visualstudio.com/)) - entorno de desarrollo.
