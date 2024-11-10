@@ -21,14 +21,14 @@ Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
 
 1. ejecute las celdas del archivo "langchainbasicapp.ipynb" para instalar las dependecias necesarias, de ser necesario, modifique "API_KEY" con su llave en la decima celda de codigo.
 
-2. Ejecute el archivo "langchainserver.py", puede utilizar el siguiente comando: python RAGserver.py o correrlo directamente en el IDE.
+2. Ejecute el archivo "langchainserver.py", puede utilizar el siguiente comando: 'python RAGserver.py' o correrlo directamente en el IDE.
 
    ![image](https://github.com/user-attachments/assets/e004521e-750d-4738-8f39-2df1e3530f85)
 
 
-3. Dirijase a la siguiente URL: http://127.0.0.1:8000/ask/playground
+3. Dirijase a la siguiente URL: http://localhost:8000/ask/playground
 
-![image](https://github.com/user-attachments/assets/4bf0aaa0-e736-47c1-b21e-a7334b319e4b)
+![image](https://github.com/user-attachments/assets/e6d13cf1-2f3d-4e13-a890-7b9c6713359b)
 
 
 # Funcionamiento
