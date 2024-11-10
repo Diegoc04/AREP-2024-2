@@ -15,21 +15,20 @@ function addPostToStream(post) {
 }
 
 function placeContent(li, post) {
-
     let principal = document.createElement("div");
     let content = document.createElement("div");
     let author = document.createElement("p");
     let image = document.createElement("img");
     let stream = document.createElement("p");
 
-    let name = (Math.floor(Math.random() * 2) + 1 == 1) ? "men" : "women";
-    let random = Math.floor(Math.random() * 100);
-
     content.setAttribute("class", "min-w-0 flex-auto");
     principal.setAttribute("class", "flex min-w-0 gap-x-4");
     author.setAttribute("class", "text-lg font-semibold leading-6 text-gray-900");
     image.setAttribute("class", "h-12 w-12 flex-none rounded-full bg-gray-50");
-    image.setAttribute("src", `https://randomuser.me/portraits/${name}/${random}.jpg`);
+
+    // URL fija para la imagen
+    image.setAttribute("src", "https://example.com/static-image.jpg");
+
     stream.setAttribute("class", "mt-1 text-md leading-6 text-gray-600 text-wrap");
 
     author.innerHTML = post.username;
@@ -53,3 +52,4 @@ function placeDate(li, post) {
     div.appendChild(p);
     li.appendChild(div);
 }
+

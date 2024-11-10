@@ -32,6 +32,23 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- Dependencia javax.annotation-api -->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+        
+        <!-- Alternativa con jakarta.annotation-api (usa solo una de las dos) -->
+        <!--
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>1.3.5</version>
+        </dependency>
+        -->
+
+        <!-- Dependencias de Quarkus -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest-jackson</artifactId>

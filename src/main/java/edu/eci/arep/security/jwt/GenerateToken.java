@@ -3,7 +3,6 @@ package edu.eci.arep.security.jwt;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import org.bson.Document;
 import org.eclipse.microprofile.jwt.Claims;
 
 import edu.eci.arep.model.User;
@@ -20,11 +19,11 @@ public class GenerateToken {
 
     public TokenDto createToken(User user) {
         if (userService.verifyPassword(user.getUsername(), user.getPassword())) {
-            String token = Jwt.issuer("https://server.example.com")
-                    .upn(user.getUsername())
-                    .groups(new HashSet<>(Arrays.asList("User", "Admin")))
-                    .claim(Claims.birthdate.name(), "2001-07-13")
-                    .sign();
+            String token = Jwt.issuer("http://localhost:8080/issuer")
+            .upn(user.getUsername())
+            .groups(new HashSet<>(Arrays.asList("User", "Admin")))
+            .claim(Claims.birthdate.name(), "2001-07-13")
+            .sign();    
             return new TokenDto(token);
         }
         return null;
