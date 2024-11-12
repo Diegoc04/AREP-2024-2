@@ -8,6 +8,7 @@ Estas instrucciones le permitirán obtener una copia del proyecto en funcionamie
 * Git - Control de versiones.
 * python - Lenguaje de programación.
 * OPENAI_API_KEY - Debido a temas de seguridad no es posible alojar la llave en el repositorio, por eso debe contar con una para reemplazarla en el codigo para que funcione.
+* Jupyter - Entorno interactivo que permite la creación de documentos que contienen código y texto explicativo.
 
 ## Instalación 
 Para instalar el proyecto en su maquina local realizaremos los siguientes pasos.
