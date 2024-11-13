@@ -63,7 +63,46 @@ Vaya a la siguiente dirección [Link](http://localhost:8080/) y puede loguear co
 mvn test
 ```
 
-## Autores
+### Arquitectura
+
+1. Arquitectura General
+   
+Backend REST API: Utiliza Java con Quarkus para construir y desplegar servicios RESTful. Cada controlador y servicio se estructura de forma independiente para manejar funcionalidades específicas como gestión de publicaciones y autenticación de usuarios.
+Base de Datos NoSQL (MongoDB): Se utiliza MongoDB para almacenar datos de publicaciones y usuarios, configurado para ejecutarse en un contenedor separado (referenciado como mongodatabase).
+Autenticación JWT: Implementa autenticación usando tokens JWT (JSON Web Tokens) para asegurar las rutas y restringir el acceso a usuarios autenticados.
+Frontend HTML/CSS/JavaScript: Una interfaz de usuario simple para la interacción, con páginas HTML que permiten a los usuarios iniciar sesión, crear publicaciones y ver una lista de publicaciones recientes.
+
+2. Componentes del Backend
+   
+Controladores (Controllers):
+StreamController: Expone endpoints para obtener y crear publicaciones (GET y POST).
+TokenSecuredResource: Expone un endpoint de autenticación (/login) donde los usuarios reciben un token JWT si las credenciales son válidas.
+UserController: Proporciona acceso a la lista de usuarios (GET).
+Servicios (Services):
+StreamService: Gestiona las publicaciones, interactuando con MongoDB para insertar y recuperar documentos de la colección stream.
+UserService: Proporciona métodos para la autenticación de usuarios, gestión de contraseñas (usando SHA-256 para hashearlas) y acceso a la colección users en MongoDB.
+GenerateToken: Encargado de crear tokens JWT, verificando las credenciales de usuario y generando un token seguro para el usuario autenticado.
+
+3. Autenticación y Seguridad
+   
+El proyecto implementa JWT para autenticar usuarios y proteger recursos sensibles.
+El archivo de configuración application.properties establece los detalles para firmar y verificar los tokens, con un requerimiento de emisor (issuer) y claves pública y privada para validar y firmar los tokens JWT.
+La ruta /secured/login permite iniciar sesión, y si el usuario es válido, se le devuelve un JWT que puede utilizar para autenticar solicitudes futuras.
+
+4. Persistencia (MongoDB)
+   
+Las colecciones de MongoDB (stream para publicaciones y users para usuarios) se configuran en un contenedor separado accesible desde la aplicación, permitiendo almacenar y acceder a los datos desde los servicios StreamService y UserService.
+MongoDB se accede mediante MongoClient, con métodos específicos para cada operación de CRUD.
+
+5. Frontend
+    
+HTML/CSS y JavaScript: La interfaz de usuario incluye páginas de login y visualización/creación de publicaciones. Los scripts en app.js se encargan de gestionar eventos de login, logout y envío de publicaciones, que se comunican con la API del backend.
+
+### Video
+
+https://www.youtube.com/watch?v=ydldOQpLMbs&ab_channel=Daniel
+
+### Autores
 
 Daniel Santiago Torres Acosta [https://github.com/RulosS290](https://github.com/RulosS290)
 
